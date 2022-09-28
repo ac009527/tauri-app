@@ -2,7 +2,6 @@
     all(not(debug_assertions), target_os = "windows"),
     windows_subsystem = "windows"
 )]
-use core::num;
 use std::process::Command; // 引入命令模块
                            // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
@@ -16,13 +15,13 @@ fn test_val(val: &str) -> String {
 }
 
 #[tauri::command]
-fn run_cmd(cmd: &str) -> Result<String, String> {
-    let output = Command::new("bash").arg("-c").arg(cmd).output().unwrap();
+fn run_cmd(val: &str) -> Result<String, String> {
+    let output = Command::new("bash").arg("-c").arg(val).output().unwrap();
     let out = String::from_utf8(output.stdout).unwrap();
     if !out.is_empty() {
         Ok(out)
     } else {
-        Err(format!("{} is not shell", cmd))
+        Err(format!("{} is not shell", val))
     }
 }
 
