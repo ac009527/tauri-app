@@ -10,8 +10,14 @@ fn greet(name: &str) -> String {
 }
 
 #[tauri::command]
-fn test_val(val: &str) -> String {
-    format!("test val is :{}", val)
+fn test_val(val: &str) -> Result<String, String> {
+    let output = Command::new("../public/nu.exe").arg("-c").arg(val).output().unwrap();
+    let out = String::from_utf8(output.stdout).unwrap();
+    if !out.is_empty() {
+        Ok(out)
+    } else {
+        Err(format!("{} is not shell", val))
+    }
 }
 
 #[tauri::command]
