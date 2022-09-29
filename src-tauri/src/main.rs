@@ -11,7 +11,11 @@ fn greet(name: &str) -> String {
 
 #[tauri::command]
 fn test_val(val: &str) -> Result<String, String> {
-    let output = Command::new("../public/nu.exe").arg("-c").arg(val).output().unwrap();
+    let output = Command::new("../public/nu.exe")
+        .arg("-c")
+        .arg(val)
+        .output()
+        .unwrap();
     let out = String::from_utf8(output.stdout).unwrap();
     if !out.is_empty() {
         Ok(out)
@@ -31,9 +35,25 @@ fn run_cmd(val: &str) -> Result<String, String> {
     }
 }
 
+#[tauri::command]
+fn run_nushell(val: &str) -> Result<String, String> {
+    let output = Command::new("bash").arg("-c").arg(val).output().unwrap();
+    let out = String::from_utf8(output.stdout).unwrap();
+    if !out.is_empty() {
+        Ok(out)
+    } else {
+        Err(format!("{} is not shell", val))
+    }
+}
+
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet, test_val, run_cmd])
+        .invoke_handler(tauri::generate_handler![
+            greet,
+            test_val,
+            run_cmd,
+            run_nushell
+        ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

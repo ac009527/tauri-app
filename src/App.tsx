@@ -2,7 +2,9 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import { invoke } from "@tauri-apps/api/tauri";
 import "./App.css";
-window.invoke = invoke;
+import { Command } from "@tauri-apps/api/shell";
+(window as any).invoke = invoke;
+(window as any).Command = Command;
 
 function App() {
   const [greetMsg, setGreetMsg] = useState("");
@@ -10,8 +12,7 @@ function App() {
 
   async function greet() {
     // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-    setGreetMsg(await invoke("greet", { name }));
-    console.log(await invoke("run_cmd", { val: "ls" }));
+    setGreetMsg(await (await Command.sidecar('./binaries/nu',['-c','ls']).execute()).stdout);
   }
 
   return (
