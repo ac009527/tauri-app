@@ -1,0 +1,77 @@
+|
+  - name: .gitignore
+    type: file
+    size: 277
+    modified: 2022-09-27 16:29:44.609781700 +08:00
+  - name: .vscode
+    type: dir
+    size: 0
+    modified: 2022-09-27 16:29:33.358167 +08:00
+  - name: 1.json
+    type: file
+    size: 2477
+    modified: 2022-09-30 14:45:28.018229 +08:00
+  - name: 1.txt
+    type: file
+    size: 0
+    modified: 2022-09-30 14:40:16.912160400 +08:00
+  - name: 1.yaml
+    type: file
+    size: 1790
+    modified: 2022-09-30 17:12:18.396036 +08:00
+  - name: README.md
+    type: file
+    size: 385
+    modified: 2022-09-27 16:29:44.609281700 +08:00
+  - name: dist
+    type: dir
+    size: 0
+    modified: 2022-09-30 14:50:39.296210400 +08:00
+  - name: index.html
+    type: file
+    size: 382
+    modified: 2022-09-27 16:29:44.610945600 +08:00
+  - name: node_modules
+    type: dir
+    size: 16384
+    modified: 2022-09-27 16:33:30.272984400 +08:00
+  - name: package.json
+    type: file
+    size: 624
+    modified: 2022-09-27 16:35:33.721944 +08:00
+  - name: public
+    type: dir
+    size: 0
+    modified: 2022-09-29 14:08:22.800740200 +08:00
+  - name: resources
+    type: dir
+    size: 0
+    modified: 2022-09-29 14:29:36.010072600 +08:00
+  - name: src
+    type: dir
+    size: 4096
+    modified: 2022-09-28 15:33:02.790222 +08:00
+  - name: src-tauri
+    type: dir
+    size: 4096
+    modified: 2022-09-29 14:09:06.302904200 +08:00
+  - name: tsconfig.json
+    type: file
+    size: 580
+    modified: 2022-09-27 16:29:44.618558100 +08:00
+  - name: tsconfig.node.json
+    type: file
+    size: 193
+    modified: 2022-09-27 16:29:44.620287200 +08:00
+  - name: vite.config.ts
+    type: file
+    size: 916
+    modified: 2022-09-27 16:29:44.621287300 +08:00
+  - name: yarn-error.log
+    type: file
+    size: 45619
+    modified: 2022-09-30 13:53:20.165934300 +08:00
+  - name: yarn.lock
+    type: file
+    size: 41820
+    modified: 2022-09-27 16:31:31.811556200 +08:00

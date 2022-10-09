@@ -25,8 +25,8 @@ fn test_val(val: &str) -> Result<String, String> {
 }
 
 #[tauri::command]
-fn run_cmd(val: &str) -> Result<String, String> {
-    let output = Command::new("bash").arg("-c").arg(val).output().unwrap();
+fn run_cmd(bash: &str, val: &str) -> Result<String, String> {
+    let output = Command::new(bash).arg("-c").arg(val).output().unwrap();
     let out = String::from_utf8(output.stdout).unwrap();
     if !out.is_empty() {
         Ok(out)
