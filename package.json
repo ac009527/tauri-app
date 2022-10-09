@@ -11,11 +11,19 @@
     "tauri-dev": "tauri dev"
   },
   "dependencies": {
+    "@codemirror/language": "^6.2.1",
     "@tauri-apps/api": "^1.1.0",
+    "@tiptap/react": "^2.0.0-beta.198",
+    "@tiptap/starter-kit": "^2.0.0-beta.199",
+    "@uiw/react-codemirror": "^3",
     "antd": "^4.23.4",
-    "my_links": "git+https://ghproxy.com/https://github.com/zhaocaimin/links.git",
+    "autoprefixer": "^10.4.12",
+    "@types/codemirror": "^5.60.5",
+    "codemirror": "^5.65.4",
+    "postcss": "^8.4.17",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "tailwindcss": "^3.1.8"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.1.0",

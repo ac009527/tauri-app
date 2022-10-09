@@ -5,62 +5,16 @@ import "./App.css";
 import { Command } from "@tauri-apps/api/shell";
 import { Slider } from "antd";
 import "antd/dist/antd.css";
+import Editor from "./components/editor";
 (window as any).invoke = invoke;
 (window as any).Command = Command;
 
 function App() {
-  const [brightness, setBrightness] = useState<number | undefined>(undefined);
-  const [voice, setVoice] = useState<number | undefined>(undefined);
-
-  useEffect(() => {
-    if (brightness == null) {
-      return;
-    }
-    invoke("run_cmd", {
-      bash: "powershell",
-      val: `(Get-WmiObject -Namespace root/WMI -Class WmiMonitorBrightnessMethods).WmiSetBrightness(1,${brightness})`,
-    });
-  }, [brightness]);
-
-  useEffect(() => {
-    if (brightness == null) {
-      return;
-    }
-    invoke("run_cmd", {
-      bash: "powershell",
-      val: `(Get-WmiObject -Namespace root/WMI -Class WmiMonitorBrightnessMethods).WmiSetBrightness(1,${brightness})`,
-    });
-  }, [brightness]);
-  useEffect(() => {
-    invoke("run_cmd", {
-      bash: "powershell",
-      val: `(Get-WmiObject -Namespace root/WMI -Class WmiMonitorBrightness).CurrentBrightness`,
-    }).then((v) => {
-      setBrightness(Number(v));
-    });
-
-    invoke("run_cmd", {
-      bash: "powershell",
-      val: `(Get-WmiObject -Namespace root/WMI -Class WmiMonitorBrightness).CurrentBrightness`,
-    }).then((v) => {
-      setBrightness(Number(v));
-    });
-    // invoke("run_cmd", {
-    //   bash: "powershell",
-    //   val: `(Get-WmiObject -Namespace root/WMI -Class WmiMonitorBrightnessMethods).WmiGetBrightness()`,
-    // }).then(() => {});
-  }, []);
-
   return (
-    <div className="container">
-      <div style={{ width: "80%" }}>
-        <Slider
-          min={0}
-          max={100}
-          onChange={(v) => setBrightness(v)}
-          value={brightness}
-        />
-        <Slider min={0} max={100} onChange={(v) => setVoice(v)} value={voice} />
+    <div className="container mx-auto flex h-full">
+      <div className="w-2/5 min-w-20 h-full bg-black"></div>
+      <div className="flex-1">
+        <Editor />
       </div>
     </div>
   );
